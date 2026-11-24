@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Mahashiv Exchange — India's #1 trusted online betting ID provider. Live Casino, Sportsbook, Slots. 15% signup bonus up to ₹50,000.">
+  <title>Mahashiv Exchange — Play With Destiny, Win With Fortune</title>
+  <link rel="icon" href="images/logo.jpg">
+  <script>document.documentElement.className+=' js';</script>
+  <style>
+    :root{
+      --bg:#090909;--panel:#11110f;--gold:#d8ad55;--gold2:#f4d58b;
+      --muted:#a9a49a;--line:rgba(216,173,85,.22);--white:#f7f4ed;--max:1180px
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--white);font-family:Inter,Arial,Helvetica,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;border:none;cursor:pointer}
+    img{background:#17140d;display:block}
+    .wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
+    .topline{height:3px;background:linear-gradient(90deg,#6d4b18,var(--gold2),#8d651f)}
+
+    /* NAV */
+    header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.06em}
+    .brand-mark{width:39px;height:39px;border:1px solid var(--gold);border-radius:50%;overflow:hidden;background:#050505}
+    .brand-mark img{width:100%;height:100%;object-fit:cover}
+    .brand-name{font-size:15px;line-height:1.15;text-transform:uppercase}
+    .brand-name small{display:block;color:var(--gold);font-size:9px;letter-spacing:.28em;margin-top:5px}
+    .nav-links{display:flex;align-items:center;gap:30px;color:#d1cdc4;font-size:13px}
+    .nav-links a:hover{color:var(--gold2)}
+    .nav-cta{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;background:var(--gold);color:#15110a;font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:11px;transition:.2s}
+    .nav-cta:hover{background:var(--gold2);transform:translateY(-2px)}
+    .menu-btn{display:none;background:none;color:var(--white);border:1px solid var(--line);padding:8px 11px}
+
+    /* HERO */
+    /* Hero height follows the banner's 1024x384 ratio so the image fits without cropping */
+    .hero{position:relative;overflow:hidden;aspect-ratio:1024/384;min-height:440px;display:flex;align-items:center;border-bottom:1px solid var(--line);
+      background:linear-gradient(90deg,rgba(9,9,9,.98) 0%,rgba(9,9,9,.97) 45%,rgba(9,9,9,.5) 54%,rgba(9,9,9,0) 64%),url("images/hero.jpg") center/cover no-repeat}
+    .hero:after{content:"";position:absolute;right:-90px;top:6%;width:560px;height:560px;border:1px solid rgba(216,173,85,.18);border-radius:50%;box-shadow:0 0 0 42px rgba(216,173,85,.025),0 0 0 86px rgba(216,173,85,.02);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;padding:36px 0;max-width:640px}
+    .eyebrow{display:flex;align-items:center;gap:12px;color:var(--gold2);font-size:11px;letter-spacing:.25em;text-transform:uppercase;font-weight:800}
+    .eyebrow:before{content:"";width:34px;height:1px;background:var(--gold)}
+    h1{font-size:clamp(34px,4.2vw,64px);line-height:.98;letter-spacing:-.05em;text-transform:uppercase;margin:16px 0}
+    h1 em{font-style:normal;color:var(--gold)}
+    .hero-copy{max-width:480px;color:#c2bdb2;font-size:15px;margin:0 0 20px}
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;background:var(--gold);color:#15110a;font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:11px;transition:.2s;cursor:pointer;border:1px solid var(--gold)}
+    .btn:hover{background:var(--gold2);transform:translateY(-2px)}
+    .btn-outline{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border:1px solid rgba(255,255,255,.24);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--white);background:none}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold2)}
+    .hero-wa{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:#4ee384;font-size:13px;font-weight:700}
+    .hero-meta{display:flex;gap:34px;margin-top:22px;padding-top:14px;border-top:1px solid rgba(255,255,255,.13);max-width:520px}
+    .meta strong{display:block;color:var(--gold2);font-size:22px;letter-spacing:.04em;font-weight:900}
+    .meta span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.15em}
+
+    /* HIGHLIGHTS STRIP */
+    .highlights{background:var(--gold)}
+    .highlights-inner{display:flex;justify-content:center;flex-wrap:wrap}
+    .hi-item{display:flex;align-items:center;gap:10px;padding:15px 30px;color:#15110a;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.1em;border-right:1px solid rgba(0,0,0,.15)}
+    .hi-item:last-child{border-right:none}
+    .hi-item .ico{font-size:18px}
+
+    /* STAT BAR */
+    .stat-bar{background:var(--panel);border-bottom:1px solid var(--line);padding:30px 0}
+    .stat-bar-inner{display:flex;justify-content:center;gap:60px;flex-wrap:wrap}
+    .stat-item{text-align:center}
+    .stat-item strong{display:block;font-size:clamp(28px,4vw,44px);color:var(--gold2);font-weight:900;letter-spacing:-.02em;line-height:1}
+    .stat-item span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.18em}
+
+    /* SHARED */
+    .section{padding:96px 0}
+    .kicker{color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.24em;font-weight:900;margin-bottom:10px}
+    h2{font-size:clamp(30px,5vw,52px);line-height:1.04;letter-spacing:-.04em;text-transform:uppercase}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:25px;margin-bottom:38px}
+    .section-head p{max-width:390px;color:var(--muted);font-size:14px}
+
+    /* FEATURE SECTIONS */
+    .feature{padding:88px 0;border-top:1px solid rgba(255,255,255,.05)}
+    .feature:nth-of-type(even){background:var(--panel)}
+    .feature-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:60px;align-items:center}
+    .feature.flip .feature-grid{grid-template-columns:1fr 1.25fr}
+    .feature.flip .feature-img{order:2}
+    .feature-img{position:relative;border:1px solid var(--line);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55);cursor:pointer;background:#17140d;display:flex;align-items:center;justify-content:center}
+    .feature-img img{width:100%;height:auto;max-height:620px;object-fit:contain;object-position:center;transition:transform .6s}
+    .feature-img:hover img{transform:scale(1.05)}
+    
+    .feature-copy p{color:var(--muted);font-size:15px;max-width:480px;margin:14px 0 24px}
+
+    /* EXCHANGE CARDS */
+    .exchange-section{padding:80px 0;background:var(--panel);border-top:1px solid rgba(255,255,255,.05)}
+    .exchange-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+    .exchange-card{background:#1a1810;border:1px solid var(--line);padding:28px 16px;text-align:center;cursor:pointer;transition:.25s;position:relative;overflow:hidden}
+    .exchange-card:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.55)}
+    .exc-name{font-size:15px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:var(--gold2);margin-bottom:6px}
+    .exc-tag{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+    .exc-badge{display:inline-block;background:rgba(216,173,85,.12);border:1px solid var(--line);color:var(--gold);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;margin-bottom:16px}
+    .exc-btn{display:block;width:100%;padding:10px;background:var(--gold);color:#15110a;font-weight:900;font-size:10px;letter-spacing:.1em;text-transform:uppercase;transition:.2s}
+    .exc-btn:hover{background:var(--gold2)}
+
+    /* BANNER */
+    .banner{position:relative;height:clamp(380px,55vw,620px);overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);cursor:pointer}
+    .banner img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s}
+    .banner:hover img{transform:scale(1.04)}
+    .banner:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,9,9,.2),rgba(9,9,9,.65));pointer-events:none}
+    .banner-text{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px}
+
+    /* 3-STEP GUIDE */
+    .steps-section{padding:90px 0;background:#0d0d0c;border-top:1px solid rgba(255,255,255,.05)}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+    .step-card{background:var(--panel);border:1px solid var(--line);padding:36px 26px;text-align:center;position:relative}
+    .step-num{font-size:68px;font-weight:900;color:rgba(216,173,85,.1);line-height:1;position:absolute;top:14px;right:18px}
+    .step-icon{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#8d651f);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:24px}
+    .step-title{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+    .step-desc{color:var(--muted);font-size:13px}
+    .step-icon svg{width:26px;height:26px;color:#15110a}
+
+    /* GAME GRID */
+    .games-section{padding:90px 0;border-top:1px solid rgba(255,255,255,.05)}
+    .games-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+    .game-card{position:relative;overflow:hidden;cursor:pointer;border:1px solid var(--line);aspect-ratio:2/3}
+    .game-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .game-card:hover img{transform:scale(1.08)}
+    .game-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,9,9,.88) 0%,rgba(9,9,9,.15) 55%,transparent);pointer-events:none}
+    .game-info{position:absolute;bottom:0;left:0;right:0;z-index:1;padding:14px}
+    .game-title{font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.04em}
+    .game-cta{display:inline-block;margin-top:7px;background:var(--gold);color:#15110a;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px}
+    .game-hover{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(216,173,85,.12);opacity:0;transition:.3s;pointer-events:none}
+    .game-card:hover .game-hover{opacity:1}
+    .game-hover span{background:var(--gold);color:#15110a;font-weight:900;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px}
+
+    /* STORY */
+    .story{background:var(--panel);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .visual-panel{min-height:460px;position:relative;overflow:hidden;border:1px solid var(--line);
+      background:radial-gradient(circle at 50% 48%,rgba(216,173,85,.22),transparent 26%),linear-gradient(135deg,#211b10,#0c0c0b 65%)}
+    .visual-panel:before,.visual-panel:after{content:"";position:absolute;border:1px solid rgba(216,173,85,.32);border-radius:50%;width:370px;height:370px;left:50%;top:46%;transform:translate(-50%,-50%)}
+    .visual-panel:after{width:430px;height:430px;border-style:dashed;opacity:.5}
+    /* Square frame to match the square emblem (983x1024) so nothing is cropped */
+    .crest{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:min(72%,320px);aspect-ratio:1/1;border:1px solid var(--gold);overflow:hidden;background:#050505;box-shadow:0 0 65px rgba(216,173,85,.2);z-index:1}
+    .crest img{width:100%;height:100%;object-fit:contain;background:#050505}
+    .visual-caption{position:absolute;bottom:22px;left:24px;right:24px;display:flex;justify-content:space-between;color:#b9ad95;font-size:9px;letter-spacing:.18em;text-transform:uppercase;z-index:2}
+    .story-copy p{color:var(--muted);font-size:15px;max-width:530px;margin-bottom:14px}
+    .story-points{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+    .point{border-left:2px solid var(--gold);padding-left:14px}
+    .point strong{display:block;font-size:13px;text-transform:uppercase}
+    .point span{font-size:11px;color:var(--muted)}
+
+    /* FEATURED GAMES LIST */
+    .match-section{background:#0d0d0c}
+    .match-list{border-top:1px solid var(--line)}
+    .match{display:grid;grid-template-columns:110px 96px 1fr 110px;align-items:center;gap:20px;padding:22px 12px;border-bottom:1px solid rgba(255,255,255,.09);cursor:pointer;transition:.15s}
+    .match:hover{background:rgba(216,173,85,.05)}
+    .match-thumb{width:96px;height:72px;object-fit:cover;border:1px solid var(--line)}
+    .match-date{color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+    .match-title{font-weight:800;text-transform:uppercase;letter-spacing:.03em}
+    .match-sub{display:block;color:var(--muted);font-size:11px;font-weight:400;text-transform:none;margin-top:3px}
+    .match-tag{justify-self:end;border:1px solid var(--line);color:var(--gold2);padding:6px 9px;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+
+    /* WHY CHOOSE US */
+    .why-section{padding:90px 0;background:var(--panel);border-top:1px solid rgba(255,255,255,.05)}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:40px}
+    .why-item{display:flex;gap:18px;margin-bottom:28px}
+    .why-icon{width:46px;height:46px;min-width:46px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:20px}
+    .why-text strong{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+    .why-text p{font-size:12px;color:var(--muted)}
+    .why-cta-box{background:#1a1810;border:1px solid var(--line);padding:38px;text-align:center}
+    .why-cta-box p{color:var(--muted);font-size:14px;margin:12px 0 26px}
+    .btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-wa{background:#25D366;border-color:#25D366;color:#06210f}
+    .btn-wa:hover{background:#4ee384}
+    .btn-tg{background:#27A7E7;border-color:#27A7E7;color:#04202e}
+    .btn-tg:hover{background:#5cc0f0}
+
+    /* COMMUNITY */
+    .community{padding:88px 0;background:linear-gradient(100deg,rgba(27,22,13,.95),rgba(13,13,12,.88)),url("images/community.jpg") center/cover no-repeat;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .community-inner{display:flex;align-items:center;justify-content:space-between;gap:36px}
+    .community h2{max-width:600px;margin-bottom:10px}
+    .community p{color:var(--muted);max-width:520px;font-size:14px;margin-bottom:28px}
+    .community .btn-row{justify-content:flex-start}
+
+    /* FAQ */
+    .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+    .faq-list details{border-bottom:1px solid rgba(255,255,255,.13);padding:18px 0}
+    .faq-list summary{cursor:pointer;list-style:none;font-size:14px;font-weight:800;display:flex;justify-content:space-between;gap:20px}
+    .faq-list summary::-webkit-details-marker{display:none}
+    .faq-list summary:after{content:"+";color:var(--gold);font-size:20px;flex-shrink:0}
+    .faq-list details[open] summary:after{content:"−"}
+    .faq-list details p{color:var(--muted);font-size:13px;margin-top:12px}
+
+    /* FOOTER */
+    footer{padding:40px 0 24px;background:#060606;border-top:1px solid var(--line)}
+    .footer-top{display:flex;justify-content:space-between;align-items:center;gap:25px;padding-bottom:28px}
+    .footer-links{display:flex;gap:22px;flex-wrap:wrap;color:var(--muted);font-size:11px}
+    .footer-links a:hover{color:var(--gold2)}
+    .fineprint{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;color:#777268;font-size:10px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .age-warn{background:rgba(255,0,0,.07);border:1px solid rgba(255,0,0,.18);padding:10px 16px;text-align:center;color:#ff8080;font-size:11px;font-weight:700;letter-spacing:.06em;margin-top:16px}
+
+    /* FLOAT */
+    .float-chat{position:fixed;right:18px;bottom:18px;z-index:30;display:flex;flex-direction:column;gap:10px}
+    .float-chat a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.5);transition:.2s}
+    .float-chat a:hover{transform:scale(1.1)}
+    .float-chat svg{width:28px;height:28px;fill:#fff}
+    .fc-wa{background:#25D366}.fc-tg{background:#27A7E7}
+
+    /* MODAL */
+    .modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(10px)}
+    .modal-overlay.open{opacity:1;pointer-events:all}
+    .modal-box{background:#17140d;border:1px solid var(--gold);padding:42px 36px;max-width:400px;width:100%;text-align:center;position:relative;transform:translateY(24px);transition:transform .3s;box-shadow:0 40px 100px rgba(0,0,0,.85)}
+    .modal-overlay.open .modal-box{transform:none}
+    .modal-logo{width:74px;height:74px;border-radius:50%;border:2px solid var(--gold);overflow:hidden;margin:0 auto 16px;box-shadow:0 0 36px rgba(216,173,85,.35)}
+    .modal-logo img{width:100%;height:100%;object-fit:cover}
+    .modal-title{font-size:21px;font-weight:900;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+    .modal-sub{color:var(--muted);font-size:13px;margin-bottom:28px;line-height:1.5}
+    .modal-btns{display:flex;flex-direction:column;gap:12px}
+    .modal-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:17px 24px;font-weight:900;font-size:15px;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:.2s;width:100%;border:none}
+    .modal-btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+    .modal-btn-wa{background:#25D366;color:#06210f}
+    .modal-btn-tg{background:#27A7E7;color:#04202e}
+    .modal-btn svg{width:22px;height:22px;fill:currentColor;flex-shrink:0}
+    .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;padding:4px}
+    .modal-close:hover{color:var(--white)}
+    .modal-note{margin-top:16px;font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+
+    /* REVEAL */
+    /* Only hide when JavaScript is running, so content (and images) always show on phones/viewers without JS */
+    .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+    .js .reveal.visible{opacity:1;transform:none}
+    .hero-img-m{display:none}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .exchange-grid{grid-template-columns:repeat(2,1fr)}
+      .games-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:850px){
+      .nav-links{display:none;position:absolute;top:78px;left:0;right:0;background:#0b0b0a;padding:22px;width:100%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:16px}
+      .nav-links.open{display:flex}
+      .menu-btn{display:block}
+      .nav-cta{display:none}
+      .story-grid,.faq-grid,.why-grid{grid-template-columns:1fr;gap:35px}
+      .feature-grid,.feature.flip .feature-grid{grid-template-columns:1fr;gap:28px}
+      .feature.flip .feature-img{order:0}
+      .feature{padding:60px 0}
+      .section{padding:72px 0}
+      /* Mobile hero: full picture on top, text below */
+      .hero{aspect-ratio:auto;min-height:0;flex-direction:column;align-items:stretch;background:var(--bg)}
+      .hero:after{display:none}
+      .hero-img-m{display:block;width:100%;height:auto;aspect-ratio:1024/384;object-fit:contain}
+      .hero-inner{padding:34px 0 48px}
+      /* Show every image completely on mobile (no cropping) */
+      .feature-img img{height:auto;object-fit:contain}
+      .feature-img:hover img,.banner:hover img,.game-card:hover img{transform:none}
+      .banner{height:auto;background:var(--panel)}
+      .banner img{height:auto;object-fit:contain}
+      .banner:after{display:none}
+      .banner-text{position:relative;inset:auto;padding:30px 0 36px}
+      .game-card{aspect-ratio:auto;background:#0d0d0c}
+      .game-card img{height:auto;object-fit:contain}
+      .section-head{flex-direction:column;align-items:flex-start}
+      .community-inner{flex-direction:column;align-items:flex-start}
+      .steps-grid{grid-template-columns:1fr}
+      .exchange-grid{grid-template-columns:repeat(2,1fr)}
+      .games-grid{grid-template-columns:repeat(2,1fr)}
+      .hi-item{padding:12px 16px;font-size:10px}
+      .stat-bar-inner{gap:30px}
+    }
+    @media(max-width:520px){
+      .wrap{width:calc(100% - 30px)}
+      .nav{height:70px}
+      .nav-links{top:70px}
+      .hero-inner{padding:28px 0 40px}
+      .hero-meta{gap:18px}
+      .meta strong{font-size:18px}
+      .match{grid-template-columns:80px 1fr;gap:6px 14px;padding:18px 6px}
+      .match-thumb{grid-column:1;grid-row:1 / span 3;width:80px;height:auto;object-fit:contain;align-self:start}
+      .match-date,.match-title{grid-column:2}
+      .match-tag{grid-column:2;justify-self:start}
+      .visual-panel{min-height:360px}
+      .crest{width:min(70%,250px)}
+      .visual-panel:before{width:290px;height:290px}
+      .visual-panel:after{width:330px;height:330px}
+      .footer-top{flex-direction:column;align-items:flex-start}
+      .games-grid{grid-template-columns:repeat(2,1fr)}
+      .exchange-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .js .reveal{opacity:1;transform:none;transition:none}
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topline"></div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Mahashiv Exchange home">
+        <div class="brand-mark"><img src="images/logo.jpg" alt="Mahashiv Exchange logo"></div>
+        <div class="brand-name">Mahashiv<br>Exchange<small>Play with destiny</small></div>
+      </a>
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
+        <a href="#games">Games</a>
+        <a href="#howitworks">How It Works</a>
+        <a href="#story">About</a>
+        <a href="#community">Community</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="nav-cta trigger-modal">Get ID Now ↗</button>
+      <button class="menu-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ════════════ HERO ════════════ -->
+    <section class="hero" id="home">
+      <img class="hero-img-m" src="images/hero.jpg" alt="Mahashiv Exchange — Live Casino, Sportsbook, Trading">
+      <div class="wrap">
+        <div class="hero-inner">
+          <div class="eyebrow">Live Casino • Sportsbook • Slots • Trading</div>
+          <h1>Play with <em>Destiny.</em><br>Win with Fortune.</h1>
+          <p class="hero-copy">India's premier gaming exchange — live casino, sports betting, daily jackpots and more. Get your ID today and claim a 15% bonus up to ₹50,000.</p>
+          <div class="hero-actions">
+            <button class="btn trigger-modal">Get ID Now ↗</button>
+            <a class="btn-outline" href="#games">Explore Games</a>
+          </div>
+          <div class="hero-wa">📱 WhatsApp: +91 7668512283</div>
+          <div class="hero-meta">
+            <div class="meta"><strong>15%</strong><span>Sign-up Bonus</span></div>
+            <div class="meta"><strong>24/7</strong><span>Live Casino</span></div>
+            <div class="meta"><strong>₹50K</strong><span>Max Bonus</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ HIGHLIGHTS STRIP ════════════ -->
+    <div class="highlights">
+      <div class="highlights-inner">
+        <div class="hi-item"><span class="ico">⚡</span> Instant ID Activation</div>
+        <div class="hi-item"><span class="ico">🎁</span> 15% Welcome Bonus</div>
+        <div class="hi-item"><span class="ico">💸</span> Withdrawal &lt; 2 Minutes</div>
+        <div class="hi-item"><span class="ico">🔒</span> 100% Secure &amp; Trusted</div>
+      </div>
+    </div>
+
+    <!-- ════════════ STAT BAR ════════════ -->
+    <div class="stat-bar">
+      <div class="wrap stat-bar-inner">
+        <div class="stat-item"><strong>50,000+</strong><span>Active Players</span></div>
+        <div class="stat-item"><strong>500+</strong><span>Live Games</span></div>
+        <div class="stat-item"><strong>&lt;2 Min</strong><span>Withdrawals</span></div>
+        <div class="stat-item"><strong>24/7</strong><span>Support</span></div>
+      </div>
+    </div>
+
+    <!-- ════════════ SECTION HEADER ════════════ -->
+    <section class="section" id="games" style="padding-bottom:20px">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Choose your game</div>
+            <h2>Every Game.<br>One Platform.</h2>
+          </div>
+          <p>From live casino thrills to sports betting and daily jackpots — it's all here on Mahashiv Exchange.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ JILI ════════════ -->
+    <section class="feature">
+      <div class="wrap feature-grid">
+        <div class="feature-img reveal trigger-modal">
+          <img src="images/feature-jili.jpg" alt="JILI Joyride">
+        </div>
+        <div class="feature-copy reveal">
+          <div class="kicker">Spin &amp; Win</div>
+          <h2>JILI Joyride</h2>
+          <p>Spin the wheel of fortune and win big with JILI — one of the hottest slot games on the platform. Jackpots, bonuses and non-stop thrills await.</p>
+          <button class="btn trigger-modal">Get ID Now ↗</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ DRAGON TIGER ════════════ -->
+    <section class="feature flip">
+      <div class="wrap feature-grid">
+        <div class="feature-img reveal trigger-modal">
+          <img src="images/feature-dragon-tiger.jpg" alt="Dragon Tiger">
+        </div>
+        <div class="feature-copy reveal">
+          <div class="kicker">Card Battle</div>
+          <h2>Dragon Tiger</h2>
+          <p>Pick your side — Dragon or Tiger — and feel the adrenaline in one of the fastest card games in the live casino. Pure instinct, pure excitement.</p>
+          <button class="btn trigger-modal">Get ID Now ↗</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ 15% BONUS ════════════ -->
+    <section class="feature">
+      <div class="wrap feature-grid">
+        <div class="feature-img reveal trigger-modal">
+          <img src="images/feature-bonus.jpg" alt="15% Joining Bonus">
+        </div>
+        <div class="feature-copy reveal">
+          <div class="kicker">Welcome Offer</div>
+          <h2>15% Joining Bonus</h2>
+          <p>New to Mahashiv Exchange? Deposit now and get an instant 15% joining bonus up to ₹50,000. More chips, more chances, more wins.</p>
+          <button class="btn trigger-modal">Claim Bonus ↗</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ AFFILIATE ════════════ -->
+    <section class="feature flip">
+      <div class="wrap feature-grid">
+        <div class="feature-img reveal trigger-modal">
+          <img src="images/feature-affiliate.jpg" alt="Affiliate Program">
+        </div>
+        <div class="feature-copy reveal">
+          <div class="kicker">Earn Daily</div>
+          <h2>Affiliate Program</h2>
+          <p>Refer friends, build your network and earn daily commission. Join our affiliate program and turn your connections into consistent income.</p>
+          <button class="btn trigger-modal">Join Now ↗</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ EXCHANGE CARDS ════════════ -->
+    <section class="exchange-section">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Premium Platforms</div>
+            <h2>Top Exchange<br>Partners.</h2>
+          </div>
+          <p>Access India's leading betting exchanges — all through one trusted Mahashiv ID.</p>
+        </div>
+        <div class="exchange-grid reveal">
+          <div class="exchange-card trigger-modal">
+            <div class="exc-name">Allpanelexch.com</div>
+            <div class="exc-tag">Sports &amp; Casino</div>
+            <div class="exc-badge">⭐ Premium</div>
+            <button class="exc-btn">Get ID Now</button>
+          </div>
+          <div class="exchange-card trigger-modal">
+            <div class="exc-name">Allpanel777.now</div>
+            <div class="exc-tag">Live Casino</div>
+            <div class="exc-badge">⭐ Premium</div>
+            <button class="exc-btn">Get ID Now</button>
+          </div>
+          <div class="exchange-card trigger-modal">
+            <div class="exc-name">99lotus.com</div>
+            <div class="exc-tag">Cricket &amp; Sports</div>
+            <div class="exc-badge">🔥 Popular</div>
+            <button class="exc-btn">Get ID Now</button>
+          </div>
+          <div class="exchange-card trigger-modal">
+            <div class="exc-name">Skyexch</div>
+            <div class="exc-tag">All Sports</div>
+            <div class="exc-badge">🔥 Hot</div>
+            <button class="exc-btn">Get ID Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ BANNER ════════════ -->
+    <div class="banner trigger-modal">
+      <img src="images/banner-wide.jpg" alt="Mahashiv Exchange — Sign Up Bonus 15% up to ₹50,000">
+      <div class="banner-text">
+        <div class="wrap">
+          <div class="kicker">Sign Up Bonus: 15% up to ₹50,000</div>
+          <h2>Daily Jackpots • Live Casino • Slots • Sports</h2>
+          <button class="btn trigger-modal" style="margin-top:14px">Get ID Now ↗</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════ HOW IT WORKS ════════════ -->
+    <section class="steps-section" id="howitworks">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Simple &amp; Fast</div>
+            <h2>Get Your ID<br>in 3 Steps.</h2>
+          </div>
+          <p>No paperwork, no waiting. Your betting ID is ready in minutes.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-num">01</div>
+            <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <div class="step-title">Contact Us</div>
+            <p class="step-desc">Reach out on WhatsApp or Telegram. Our team is available 24/7 and responds instantly.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-num">02</div>
+            <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div>
+            <div class="step-title">Share Details</div>
+            <p class="step-desc">Just your name and phone number — that's all we need to set up your account.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-num">03</div>
+            <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
+            <div class="step-title">Get ID &amp; Play</div>
+            <p class="step-desc">Receive your credentials instantly. Deposit, claim your 15% bonus and start winning!</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:42px">
+          <button class="btn trigger-modal" style="font-size:13px;padding:16px 36px">Get My ID Now ↗</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ GAME CATEGORY GRID ════════════ -->
+    <section class="games-section" id="categories">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Available Games</div>
+            <h2>Top Casino<br>Games.</h2>
+          </div>
+          <p>JILI, Dragon Tiger, Live Casino, Slots and more — all under one Mahashiv ID.</p>
+        </div>
+        <div class="games-grid">
+          <div class="game-card trigger-modal reveal">
+            <img src="images/game-jili.jpg" alt="JILI Slots">
+            <div class="game-hover"><span>Get ID Now</span></div>
+            <div class="game-info"><div class="game-title">JILI Slots</div><span class="game-cta">Get ID Now</span></div>
+          </div>
+          <div class="game-card trigger-modal reveal">
+            <img src="images/game-dragon-tiger.jpg" alt="Dragon Tiger">
+            <div class="game-hover"><span>Get ID Now</span></div>
+            <div class="game-info"><div class="game-title">Dragon Tiger</div><span class="game-cta">Get ID Now</span></div>
+          </div>
+          <div class="game-card trigger-modal reveal">
+            <img src="images/game-bonus.jpg" alt="Live Casino">
+            <div class="game-hover"><span>Get ID Now</span></div>
+            <div class="game-info"><div class="game-title">Live Casino</div><span class="game-cta">Get ID Now</span></div>
+          </div>
+          <div class="game-card trigger-modal reveal">
+            <img src="images/game-affiliate.jpg" alt="Affiliate Program">
+            <div class="game-hover"><span>Join Now</span></div>
+            <div class="game-info"><div class="game-title">Affiliate Program</div><span class="game-cta">Join Now</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ OUR STORY ════════════ -->
+    <section class="section story" id="story">
+      <div class="wrap story-grid">
+        <div class="visual-panel reveal" aria-label="Brand emblem">
+          <div class="crest"><img src="images/emblem.jpg" alt="Mahashiv Exchange emblem"></div>
+          <div class="visual-caption"><span>Mahashiv Exchange</span><span>Trusted • Secure • Fast</span></div>
+        </div>
+        <div class="story-copy reveal">
+          <div class="kicker">Who We Are</div>
+          <h2>Built on Trust.<br>Powered by Wins.</h2>
+          <p>Mahashiv Exchange is India's trusted gaming destination. From live dealer tables to sportsbook and slots, we bring the full casino experience straight to you.</p>
+          <p>Backed by the power of Mahashiv — your blessings, your wins, your exchange.</p>
+          <div class="story-points">
+            <div class="point"><strong>Secure</strong><span>Safe deposits &amp; withdrawals.</span></div>
+            <div class="point"><strong>24/7 Support</strong><span>Always here for you.</span></div>
+            <div class="point"><strong>Big Bonuses</strong><span>15% sign-up + daily offers.</span></div>
+            <div class="point"><strong>Instant Payouts</strong><span>Fast, reliable cashouts.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ FEATURED GAMES ════════════ -->
+    <section class="section match-section" id="matchday">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Hot Right Now</div>
+            <h2>Featured<br>Games.</h2>
+          </div>
+          <p>Our top picks — updated daily. Dive in and start winning.</p>
+        </div>
+        <div class="match-list reveal">
+          <div class="match trigger-modal">
+            <div class="match-date">Slots</div>
+            <img class="match-thumb" src="images/match1.jpg" alt="">
+            <div class="match-title">JILI Joyride<span class="match-sub">Spin the wheel and win massive jackpots every hour.</span></div>
+            <div class="match-tag">Hot Game 🔥</div>
+          </div>
+          <div class="match trigger-modal">
+            <div class="match-date">Live Casino</div>
+            <img class="match-thumb" src="images/match2.jpg" alt="">
+            <div class="match-title">Dragon Tiger<span class="match-sub">Pick Dragon or Tiger — the fastest card game in live casino.</span></div>
+            <div class="match-tag">Live Now ⚡</div>
+          </div>
+          <div class="match trigger-modal">
+            <div class="match-date">Bonus</div>
+            <img class="match-thumb" src="images/match3.jpg" alt="">
+            <div class="match-title">15% Joining Bonus<span class="match-sub">Deposit now and claim your bonus up to ₹50,000.</span></div>
+            <div class="match-tag">Limited 🎁</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ WHY CHOOSE US ════════════ -->
+    <section class="why-section" id="why">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Why Mahashiv Exchange</div>
+            <h2>Your Winning<br>Engine.</h2>
+          </div>
+        </div>
+        <div class="why-grid">
+          <div>
+            <div class="why-item reveal">
+              <div class="why-icon">⚡</div>
+              <div class="why-text"><strong>Instant ID Activation</strong><p>Your betting ID is ready in under 60 seconds after contacting us.</p></div>
+            </div>
+            <div class="why-item reveal">
+              <div class="why-icon">💸</div>
+              <div class="why-text"><strong>Withdrawal in &lt;2 Minutes</strong><p>UPI, Paytm, Google Pay, PhonePe — instant cashouts every time.</p></div>
+            </div>
+            <div class="why-item reveal">
+              <div class="why-icon">🔒</div>
+              <div class="why-text"><strong>100% Safe &amp; Secure</strong><p>Your data and money are protected with industry-grade security.</p></div>
+            </div>
+            <div class="why-item reveal">
+              <div class="why-icon">🎁</div>
+              <div class="why-text"><strong>Daily Bonuses &amp; Jackpots</strong><p>15% welcome bonus plus daily reload offers and jackpot prizes.</p></div>
+            </div>
+          </div>
+          <div class="why-cta-box reveal">
+            <div class="kicker">Ready to Play?</div>
+            <h2 style="font-size:clamp(26px,4vw,40px);margin:12px 0">Get Your<br>ID Today.</h2>
+            <p>Contact us now on WhatsApp or Telegram and get your ID in minutes. Start with the 15% bonus!</p>
+            <div class="btn-row">
+              <button class="btn btn-wa trigger-modal">📱 WhatsApp</button>
+              <button class="btn btn-tg trigger-modal">✈️ Telegram</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ COMMUNITY ════════════ -->
+    <section class="community" id="community">
+      <div class="wrap community-inner reveal">
+        <div>
+          <div class="kicker">Join the Action</div>
+          <h2>Bring Your Luck.<br>Find Your Wins.</h2>
+          <p>Join the Mahashiv Exchange community on WhatsApp and Telegram for exclusive tips, bonuses and live game updates.</p>
+          <div class="btn-row">
+            <button class="btn btn-wa trigger-modal">📱 WhatsApp</button>
+            <button class="btn btn-tg trigger-modal">✈️ Telegram</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ FAQ ════════════ -->
+    <section class="section" id="faq">
+      <div class="wrap faq-grid">
+        <div class="reveal">
+          <div class="kicker">Quick Answers</div>
+          <h2>Good to<br>Know.</h2>
+        </div>
+        <div class="faq-list reveal">
+          <details><summary>What is Mahashiv Exchange?</summary><p>Mahashiv Exchange is a premier online gaming platform offering live casino, sports betting, slots, jackpots and more — all in one place with instant ID activation.</p></details>
+          <details><summary>How do I claim the 15% joining bonus?</summary><p>Simply sign up, make your first deposit and the 15% bonus (up to ₹50,000) is credited to your account instantly. Contact us on WhatsApp or Telegram to get started.</p></details>
+          <details><summary>How do I join the community?</summary><p>Use the WhatsApp or Telegram buttons on this page. Our team is active 24/7 to assist you immediately.</p></details>
+          <details><summary>What payment methods are supported?</summary><p>We support UPI, Paytm, Google Pay, PhonePe and bank transfers. Withdrawals are processed in under 2 minutes.</p></details>
+          <details><summary>Is my data safe with Mahashiv Exchange?</summary><p>Absolutely. We use industry-grade security to protect your personal data and financial transactions at all times.</p></details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════ FOOTER ════════════ -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <a class="brand" href="#home">
+          <div class="brand-mark"><img src="images/logo.jpg" alt="Logo"></div>
+          <div class="brand-name">Mahashiv<br>Exchange<small>Play with destiny</small></div>
+        </a>
+        <div class="footer-links">
+          <a href="#games">Games</a>
+          <a href="#story">About</a>
+          <a href="#community">Community</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="fineprint">
+        <span>© <span id="year"></span> Mahashiv Exchange.</span>
+        <span>Live Casino • Sportsbook • Slots • Daily Jackpots</span>
+      </div>
+      <div class="age-warn">⚠️ This website is only for users aged 18 and above. If you are under 18, please leave this website immediately.</div>
+    </div>
+  </footer>
+
+  <!-- ════════════ FLOATING CHAT ════════════ -->
+  <div class="float-chat">
+    <a class="fc-wa" id="float-wa" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.25.69-1.45 1.32-2 1.37-.51.05-.99.24-3.33-.69-2.82-1.11-4.6-3.99-4.74-4.18-.14-.19-1.13-1.5-1.13-2.86 0-1.36.71-2.03.97-2.31.25-.28.55-.35.74-.35h.53c.17 0 .4-.06.62.48.23.55.78 1.9.85 2.04.07.14.11.3.02.49-.09.19-.14.3-.28.46-.14.17-.29.37-.41.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.28.37-.23.62-.14.26.09 1.62.76 1.9.9.28.14.46.21.53.33.07.11.07.66-.18 1.35z"/></svg>
+    </a>
+    <a class="fc-tg" id="float-tg" href="#" target="_blank" rel="noopener" aria-label="Open Telegram">
+      <svg viewBox="0 0 24 24"><path d="M9.78 15.17l-.4 4.17c.58 0 .83-.25 1.13-.55l2.7-2.58 5.6 4.1c1.03.57 1.76.27 2.04-.95l3.7-17.3c.34-1.52-.55-2.12-1.55-1.75L1.3 9.7c-1.48.58-1.46 1.4-.26 1.77l5.6 1.75L19.7 5.05c.6-.4 1.16-.18.7.22"/></svg>
+    </a>
+  </div>
+
+  <!-- ════════════ MODAL ════════════ -->
+  <div class="modal-overlay" id="id-modal" role="dialog" aria-modal="true" aria-label="Get your ID">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      <div class="modal-logo"><img src="images/logo.jpg" alt="Mahashiv Exchange"></div>
+      <div class="modal-title">Get Your ID</div>
+      <div class="modal-sub">Choose how you'd like to contact us — get your betting ID in minutes!</div>
+      <div class="modal-btns">
+        <button class="modal-btn modal-btn-wa" id="modal-wa">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.25.69-1.45 1.32-2 1.37-.51.05-.99.24-3.33-.69-2.82-1.11-4.6-3.99-4.74-4.18-.14-.19-1.13-1.5-1.13-2.86 0-1.36.71-2.03.97-2.31.25-.28.55-.35.74-.35h.53c.17 0 .4-.06.62.48.23.55.78 1.9.85 2.04.07.14.11.3.02.49-.09.19-.14.3-.28.46-.14.17-.29.37-.41.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.28.37-.23.62-.14.26.09 1.62.76 1.9.9.28.14.46.21.53.33.07.11.07.66-.18 1.35z"/></svg>
+          WhatsApp
+        </button>
+        <button class="modal-btn modal-btn-tg" id="modal-tg">
+          <svg viewBox="0 0 24 24"><path d="M9.78 15.17l-.4 4.17c.58 0 .83-.25 1.13-.55l2.7-2.58 5.6 4.1c1.03.57 1.76.27 2.04-.95l3.7-17.3c.34-1.52-.55-2.12-1.55-1.75L1.3 9.7c-1.48.58-1.46 1.4-.26 1.77l5.6 1.75L19.7 5.05c.6-.4 1.16-.18.7.22"/></svg>
+          Telegram
+        </button>
+      </div>
+      <div class="modal-note">🔒 100% Secure • Instant Activation • 15% Bonus</div>
+    </div>
+  </div>
+
+  <script>
+    const WHATSAPP_NUMBER  = "917668512283";
+    const TELEGRAM_LINK    = "https://t.me/mahashivvexchangee";
+    const WHATSAPP_MESSAGE = "Hi! I want to get my Mahashiv Exchange ID. Please assist me.";
+
+    // Floating buttons
+    document.getElementById('float-wa').href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WHATSAPP_MESSAGE);
+    document.getElementById('float-tg').href = TELEGRAM_LINK;
+
+    // ── Modal logic ──
+    const modal = document.getElementById('id-modal');
+
+    function openModal(e) {
+      if (e) e.stopPropagation();
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+    document.getElementById('modal-wa').addEventListener('click', function() {
+      window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WHATSAPP_MESSAGE), '_blank');
+      closeModal();
+    });
+    document.getElementById('modal-tg').addEventListener('click', function() {
+      window.open(TELEGRAM_LINK, '_blank');
+      closeModal();
+    });
+
+    // Attach modal trigger to every element with class trigger-modal
+    document.querySelectorAll('.trigger-modal').forEach(function(el) {
+      el.addEventListener('click', openModal);
+    });
+
+    // ── Mobile menu ──
+    var menuBtn = document.getElementById('menu-btn');
+    var siteNav = document.getElementById('site-nav');
+    menuBtn.addEventListener('click', function() {
+      var open = siteNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '✕' : '☰';
+    });
+    siteNav.querySelectorAll('a').forEach(function(l) {
+      l.addEventListener('click', function() {
+        siteNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.textContent = '☰';
+      });
+    });
+
+    // ── Year ──
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ── Scroll reveal ──
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+        });
+      }, { threshold: 0.01 });
+      revealEls.forEach(function(el) { observer.observe(el); });
+    } else {
+      revealEls.forEach(function(el) { el.classList.add('visible'); });
+    }
+    // Safety net: never leave anything hidden
+    setTimeout(function() { revealEls.forEach(function(el) { el.classList.add('visible'); }); }, 2500);
+  </script>
+
+</body>
+</html>
+
