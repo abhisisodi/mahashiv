@@ -102,11 +102,12 @@
     .exc-btn:hover{background:var(--gold2)}
 
     /* BANNER */
-    .banner{position:relative;height:clamp(380px,55vw,620px);overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);cursor:pointer}
-    .banner img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s}
-    .banner:hover img{transform:scale(1.04)}
-    .banner:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,9,9,.2),rgba(9,9,9,.65));pointer-events:none}
-    .banner-text{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px}
+    .banner{position:relative;aspect-ratio:1920/625;width:100%;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);cursor:pointer;background:#090909}
+    .banner picture{display:block;width:100%;height:100%}
+    .banner img{width:100%;height:100%;object-fit:contain;object-position:center;transition:transform .6s}
+    .banner:hover img{transform:scale(1.02)}
+    .banner:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,9,9,.18),rgba(9,9,9,.62));pointer-events:none}
+    .banner-text{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;text-shadow:0 2px 18px rgba(0,0,0,.85)}
 
     /* 3-STEP GUIDE */
     .steps-section{padding:90px 0;background:#0d0d0c;border-top:1px solid rgba(255,255,255,.05)}
@@ -254,8 +255,9 @@
       /* Show every image completely on mobile (no cropping) */
       .feature-img img{height:auto;object-fit:contain}
       .feature-img:hover img,.banner:hover img,.game-card:hover img{transform:none}
-      .banner{height:auto;background:var(--panel)}
-      .banner img{height:auto;object-fit:contain}
+      .banner{aspect-ratio:auto;height:auto;background:var(--panel)}
+      .banner picture{height:auto}
+      .banner img{width:100%;height:auto;aspect-ratio:4/5;object-fit:contain}
       .banner:after{display:none}
       .banner-text{position:relative;inset:auto;padding:30px 0 36px}
       .game-card{aspect-ratio:auto;background:#0d0d0c}
@@ -474,7 +476,10 @@
 
     <!-- ════════════ BANNER ════════════ -->
     <div class="banner trigger-modal">
-      <img src="images/banner-wide.jpg" alt="Mahashiv Exchange — Sign Up Bonus 15% up to ₹50,000">
+      <picture>
+        <source media="(max-width: 850px)" srcset="images/banner-mobile.jpg">
+        <img src="images/banner-wide.jpg" alt="Mahashiv Exchange — Sign Up Bonus 15% up to ₹50,000">
+      </picture>
       <div class="banner-text">
         <div class="wrap">
           <div class="kicker">Sign Up Bonus: 15% up to ₹50,000</div>
